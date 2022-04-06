@@ -1,0 +1,1 @@
+{"name":"Local: lexicographicRank","url":"e:\\C++\\program\\lexicographicRank.cpp","tests":[{"id":1606129199483,"input":"ABC","output":""},{"id":1606129209426,"input":"CBA","output":""},{"id":1606129217158,"input":"STRING","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\program\\lexicographicRank.cpp","group":"local","local":true}

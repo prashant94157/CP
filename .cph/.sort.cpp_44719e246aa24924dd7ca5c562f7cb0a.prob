@@ -1,0 +1,1 @@
+{"name":"Local: sort","url":"e:\\C++\\sort.cpp","tests":[{"id":1637579541297,"input":"1\n3\nbat apple batman","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\sort.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: new","url":"e:\\C++\\new.cpp","tests":[{"id":1605617117414,"input":"4554","output":"4554\nhello world"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\new.cpp","group":"local","local":true}

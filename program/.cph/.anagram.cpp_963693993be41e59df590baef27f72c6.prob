@@ -1,0 +1,1 @@
+{"name":"Local: anagram","url":"e:\\C++\\program\\anagram.cpp","tests":[{"id":1606127441384,"input":"geeks\nekegs","output":"YES"},{"id":1606127454207,"input":"aabcd\nabbcd","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\program\\anagram.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: reverseAStack","url":"e:\\C++\\recursion\\reverseAStack.cpp","tests":[{"id":1620411647305,"input":"7\n1 2 3 4 5 6 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\recursion\\reverseAStack.cpp","group":"local","local":true}

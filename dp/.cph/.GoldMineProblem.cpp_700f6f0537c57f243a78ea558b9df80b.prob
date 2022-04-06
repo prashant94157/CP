@@ -1,0 +1,1 @@
+{"name":"Local: GoldMineProblem","url":"e:\\C++\\dp\\GoldMineProblem.cpp","tests":[{"id":1608365756318,"input":"3 3\n1 3 3\n2 1 4\n0 6 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\dp\\GoldMineProblem.cpp","group":"local","local":true}

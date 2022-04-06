@@ -1,0 +1,1 @@
+{"name":"Local: blockedMaze","url":"e:\\C++\\BackTracking\\blockedMaze.cpp","tests":[{"id":1606502898272,"input":"4 4\n0 -1 0 0\n0 0 0 0\n0 -1 0 0\n0 -1 -1 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\BackTracking\\blockedMaze.cpp","group":"local","local":true}

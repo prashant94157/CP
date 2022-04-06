@@ -1,0 +1,1 @@
+{"name":"Local: countOfSubsetOfAGivenSum","url":"e:\\C++\\dp\\aditya verma\\countOfSubsetOfAGivenSum.cpp","tests":[{"id":1622831531016,"input":"1\n9\n0 0 0 0 0 0 0 0 1\n1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\dp\\aditya verma\\countOfSubsetOfAGivenSum.cpp","group":"local","local":true}

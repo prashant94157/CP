@@ -1,0 +1,66 @@
+Sequence Containers: vector, list, deque, arrays, forward_list
+
+Containers Adaptors: queue, priority queue, stack
+
+Associative Containers: set, multiset, map, multimap
+
+Unordered Associative Containers: Unordered set, Unordered multiset, Unordered map, Unordered multimap
+
+Delimiters:
+char s = "this is a rainy day";
+char *ptr = strtok(s," ");
+while(ptr!=NULL)
+{
+    cout<<*ptr<<"\n";
+    ptr = strtok(NULL," ");
+}
+
+list stl is implemented as doubly linked list in c++
+
+priority_queue is implementedas heap
+max heap is defined as priority_queue<int> pq;
+min heap is defined as priority_queue<int,vector<int>, greater<int>> pq;
+for objects to store in priority_queue :
+class person
+{
+public:
+    string name;
+    int age;
+    person(string n, int a)
+    {
+        name = n;
+        age = a;
+    }
+};
+
+class personCompare
+{
+public:
+    bool operator()(person a, person b)
+    {
+        return a.age > b.age;
+    }
+};
+
+int main()
+{
+    int n;
+    cin >> n;
+    priority_queue<person, vector<person> , personCompare> pq;
+    for (int i = 0; i < n; i++)
+    {
+        string n;
+        int m;
+        cin >> n >> m;
+        person A(n, m);
+        pq.push(A);
+    }
+    while (pq.size() > 0)
+    {
+        cout << pq.top().name << " " << pq.top().age << "\n";
+        pq.pop();
+    }
+}
+
+multimap, map are implemented as red-black trees (also known as self balancing tree)
+unordered_map,unordered_multimap are implemented as hash

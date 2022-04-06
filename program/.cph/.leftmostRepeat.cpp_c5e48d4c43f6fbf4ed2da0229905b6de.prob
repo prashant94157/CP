@@ -1,0 +1,1 @@
+{"name":"Local: leftmostRepeat","url":"e:\\C++\\program\\leftmostRepeat.cpp","tests":[{"id":1606127777540,"input":"geeksforgeeks","output":""},{"id":1606127794660,"input":"abbcc","output":""},{"id":1606127807051,"input":"abcd","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++\\program\\leftmostRepeat.cpp","group":"local","local":true}
