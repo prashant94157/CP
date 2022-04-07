@@ -57,50 +57,16 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 #define deb(x) cout<<" --> "<<(#x)<<" : "<<x<<endl;
 #define deb2(x, y) cout<<" --> "<<(#x)<<" : "<<x<<" , "<<(#y)<<" : "<<y<<endl;
 
-void fuc(vll &arr)
+ll calc_mex(vll &v)
 {
-  ll res = 0, curr=-1,m=-1,p=-1;
-  for(auto a:arr)
+  ll ans = v.size();
+  ll n = v.size();
+  for (ll i = 0; i < n; i++)
   {
-    if(p==-1)
-    {
-      curr=1;p=a;
-    }
-    else
-    if(curr==a)
-    {
-      continue;
-    }else if(curr+1==a)
-    {
-      curr++;
-      p=a;
-    }
-    else{
-      if(m==-1)
-      {
-        m = curr;
-        curr=1;
-        p=a;
-      }
-      else if(m==curr)
-      {
-        res++;
-        curr=1;
-        p=a;
-      }
-      else{
-        curr=1;
-        p=a;
-      }
-    }
+    if (v[i] != i)
+      return i;
   }
-  if(m==curr)
-  {
-    res++;
-    curr=1;
-    p=a;
-  }
-  cout<<res<<endl;
+  return ans;
 }
 
 void solve()
@@ -109,29 +75,33 @@ void solve()
   cin>>n;
   vll arr;
   FILL(n,arr);    
-  for(auto a:arr)
+  sort(arr.begin(), arr.end());
+  arr.erase(unique(arr.begin(),arr.end()),arr.end());
+  ll mex = calc_mex(arr);
+  if (mex == 0)
   {
-    if(a==0)
-    z=1;
-    if(a==1)
-    f=1;
-    // cout<<f<<' ';
-  }
-  if(z==0)
-  {
-    ll res = *min_element(arr.begin(),arr.end());
-    cout<<(res-1)<<endl;return;
-  }
-  if(f==0)
-  {
-    cout<<-1<<endl;
-    // cout<<f<<" "<<x;
+    cout << (arr[0] - 1) << endl;
     return;
   }
-  // cout<<"arr";
-  sort(arr.begin(), arr.end());
-  fuc(arr);
-  // print(arr);
+  if (mex == 1)
+  {
+    cout << -1 << endl;
+    return;
+  }
+  ll ans = 0;
+  n = arr.size();
+  for (ll i = 0; i < n;)
+  {
+    ll cnt = 1;
+    ll j = i + 1;
+    while (j < n && arr[j] - arr[j - 1] == 1)
+      ++cnt, j++;
+    if (cnt >= (mex - 1))
+      ++ans;
+    i = j;
+  }
+  --ans;
+  cout << ans << endl;
 }
 
 signed main()
