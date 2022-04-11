@@ -59,51 +59,37 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 
 void solve()
 {
-    ll n,k;
-    cin>>n>>k;
-    string s;
-    cin>>s;
-    // if(n==k)
-    // {
-    //   cout<<1<<endl;return;
-    // }
-    vll c(26);
-    for(auto a:s)
-    {
-      c[a-'a']++;
-    }
-    
-    vll str(k), odd(k);
-    ll j=0,l=0;
-    REP(26)
-    {
-      ll a = c[i];
-      while(a>0)
-      {
-        if(a%2==0)
-        {
-          str[j]+=2;
-          j = (j+1)%k;
-          a-=2;
-        }
-        else {
-          
-        }
-      }
-    }
-    print(str);
-    // print(odd);
-    // REP(k)
-    // {
-    //   str[i]+=odd[i];
-    // }
-    // cout<<(*min_element(all(str)))<<endl;
+  ll n,x,y,z;
+  cin>>n;
+  vll arr(n);
+  cout<<"? 1 2\n";
+  fflush(stdout);
+  cin>>x;
+  cout<<"? 2 3\n";
+  fflush(stdout);
+  cin>>y;
+  cout<<"? 1 3\n";
+  fflush(stdout);
+  cin>>z;
+  arr[1] = x+y-z;
+  arr[0] = x - arr[1];
+  arr[2] = y - arr[1];
+  REP(n-3)
+  {
+    cout<<"? "<<(i+3)<<" "<<(i+4)<<endl;
+    fflush(stdout);
+    cin>>x;
+    arr[i+3] = x - arr[i+2];
+  }
+  cout<<"! ";
+  print(arr);
+  fflush(stdout);
 }
 
 signed main()
 {
-    IOS ll t;
-    cin >> t;
-    while (t--)
+    // IOS ll t;
+    // cin >> t;
+    // while (t--)
         solve();
 }
