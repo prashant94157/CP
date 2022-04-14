@@ -48,34 +48,41 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 #define REP(n) for(int i=0;i<n;i++)
 #define REP1(n) for(int i=1;i<n;i++)
 #define REPr(n) for(int i=n-1;i>=0;i--)
-#define rep(i,n) for(i=0;i<n;i++)
-#define repr(i,n) for(i=n-1;i>=0;i--)
+#define rep(i,n) for(int i=0;i<n;i++)
+#define repr(i,n) for(int i=n-1;i>=0;i--)
 #define maxx(arr) *(max_element(all(arr)))
 #define minn(arr) *(min_element(all(arr)))
 #define FILL(n,arr) for(int i=0;i<n;i++){ll x;cin>>x;arr.pb(x);}
+#define FILL1(n,m,arr) for(int j=0;j<n;j++){vll a; FILL(m,a);arr.pb(a);}
 #define print(arr) {for(int i=0;i<arr.size();i++){cout<<arr[i]<<" ";}cout<<endl;}
+#define print1(arr) {for(int j=0;j<arr.size();j++) print(arr[j]);}
 #define deb(x) cout<<" --> "<<(#x)<<" : "<<x<<endl;
 #define deb2(x, y) cout<<" --> "<<(#x)<<" : "<<x<<" , "<<(#y)<<" : "<<y<<endl;
-
+#define error(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
+void err(istream_iterator<string> it) {}
+template<typename T, typename... Args>
+void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
 void solve()
 {
-  ll n,m;
-  cin>>n>>m;
-  unordered_map<string, ll> mp;
-  REP(n)
-  {
-    string a;
-    cin>>a;
-    
-  }
+  ll n,k;
+  cin>>n>>k;
   string s;
   cin>>s;
+  ll c=0;
+  for(auto a:s)
+  {
+    if(a=='1')
+      c++;
+  }
+  if(((c-(c/k)*k)%2==0 && k>=2)||(c%k)%2==0 && 2<=(k-c/k))
+  cout<<"YES\n";
+  else cout<<"NO\n";
 }
 
 signed main()
 {
-    IOS ll t;
-    cin >> t;
-    while (t--)
-        solve();
+  IOS ll t;
+  cin >> t;
+  while (t--)
+    solve();
 }

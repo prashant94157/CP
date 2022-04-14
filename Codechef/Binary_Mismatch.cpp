@@ -48,39 +48,76 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 #define REP(n) for(int i=0;i<n;i++)
 #define REP1(n) for(int i=1;i<n;i++)
 #define REPr(n) for(int i=n-1;i>=0;i--)
-#define rep(i,n) for(i=0;i<n;i++)
-#define repr(i,n) for(i=n-1;i>=0;i--)
+#define rep(i,n) for(int i=0;i<n;i++)
+#define repr(i,n) for(int i=n-1;i>=0;i--)
 #define maxx(arr) *(max_element(all(arr)))
 #define minn(arr) *(min_element(all(arr)))
 #define FILL(n,arr) for(int i=0;i<n;i++){ll x;cin>>x;arr.pb(x);}
+#define FILL1(n,m,arr) for(int j=0;j<n;j++){vll a; FILL(m,a);arr.pb(a);}
 #define print(arr) {for(int i=0;i<arr.size();i++){cout<<arr[i]<<" ";}cout<<endl;}
+#define print1(arr) {for(int j=0;j<arr.size();j++) print(arr[j]);}
 #define deb(x) cout<<" --> "<<(#x)<<" : "<<x<<endl;
 #define deb2(x, y) cout<<" --> "<<(#x)<<" : "<<x<<" , "<<(#y)<<" : "<<y<<endl;
+#define error(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
+void err(istream_iterator<string> it) {}
+template<typename T, typename... Args>
+void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
+
+void func(string s,ll a,char c)
+{
+  ll i=0,j=s.size()-1;
+  while(i<=j && s[i]!=c)
+  i++;
+  while(i<=j && s[j]!=c)
+  j--;
+  // error(i,j,a);
+  ll curr=0,l=i;
+  while(i<=j)
+  {
+    if(s[i]==c)
+    curr++;
+    else curr--;
+    if(curr==a/2)
+    {
+      cout<<"YES\n"<<l+1<<" "<<i+1<<endl;return;
+    }
+    // error(curr, i);
+    i++;
+  }
+  cout<<"NO\n";
+}
 
 void solve()
 {
-  ll a,b;
-  cin>>a>>b;
-  if(a==3 && b==6)
-  cout<<"3 6\n";
-  else
-  if(a%2==0)
+  ll n;
+  cin>>n;
+  vll arr;
+  string s;
+  cin>>s;
+  ll x=0,y=0;
+  for(auto a:s)
   {
-    if(a+2<=b)
-    cout<<a<<" "<<a+2<<endl;
-    else cout<<"-1\n";
+    if(a=='0')
+    x++;
+    else y++;
   }
-  else{
-    if(a+3<=b)
-    cout<<a<<" "<<a+2<<endl;
-    else cout<<"-1\n";
+  if(x==y)
+  {
+    cout<<"YES\n1 "<<n<<endl;return;
   }
+  if(abs(x-y)%2==1)
+  {
+    cout<<"NO"<<endl;return;
+  }
+  if(x>y)
+  func(s,x-y,'0');
+  else func(s,y-x,'1');
 }
 
 signed main()
 {
-    IOS ll t;
-    cin >> t;
-    while (t--)
-        solve();
+  IOS ll t;
+  cin >> t;
+  while (t--)
+    solve();
 }
