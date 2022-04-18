@@ -62,40 +62,89 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
+
+void func(vll &op, ll i, ll j)
+{
+  while(i<=j)
+  {
+    op[i++]++;
+  }
+}
+
 void solve()
 {
-  ll n,res=0,l=0,curr=0,f=0;
-  cin>>n;
+  ll n,k,i=0,j;
+  cin>>n>>k;
   string s;
   cin>>s;
-  for(ll i=0;i<n;i++)
+  vll op(n,0);
+  if(k==0)
   {
-    if(s[i]=='(')
+    cout<<s<<endl;
+    print(op);return;
+  }
+  
+  if(k%2==1)
+  {
+    while(i<n && s[i]=='0')
+    i++;
+    j=i;
+    REP(n)
     {
-      if(f==0)
+      if(i!=j)
       {
-        if(i+1<n)
-        {
-          res++;i++;
-        }
-        else l=1;
+        if(s[i]=='0')
+        s[i] = '1';
+        else s[i] ='0';
       }
-      else l++;
     }
-    else{
-      if(f==0)
-      {
-        f=1;
-        l++;
-      }
+    if(i==n)
+    {
+      s[n-1] = '0';
+      op[n-1]=k;
+      cout<<s<<endl;
+      print(op);return;
+    }
+    op[i]++;
+    k--;
+  }
+  ll l=-1;
+  for(i=0;i<n && k>0;i++)
+  {
+    if(s[i]=='0')
+    {
+      if(l==-1)
+      l=i;
       else {
-        res++;
-        f=0;
-        l=0;
+        s[l] = '1';
+        s[i] = '1';
+        k-=2;
+        
+        op[i]++;
+        op[l]++;
+        l=-1;
       }
+    }  
+  }
+  if(l!=-1)
+  {
+    //01
+    if(l+1!=n)
+    {
+      s[l] = '1';
+      s[n-1] = '0';
+      k-=2;
+      op[l]++;
+      op[n-1]++;
     }
   }
-  cout<<res<<" "<<l<<endl;
+  if(k>0)
+  {
+    op[0]+=k;
+  }
+  cout<<s<<endl;
+  print(op);return;
+  
 }
 
 signed main()

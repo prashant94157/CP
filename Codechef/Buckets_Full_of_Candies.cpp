@@ -64,38 +64,14 @@ template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
 void solve()
 {
-  ll n,res=0,l=0,curr=0,f=0;
-  cin>>n;
-  string s;
-  cin>>s;
-  for(ll i=0;i<n;i++)
-  {
-    if(s[i]=='(')
-    {
-      if(f==0)
-      {
-        if(i+1<n)
-        {
-          res++;i++;
-        }
-        else l=1;
-      }
-      else l++;
-    }
-    else{
-      if(f==0)
-      {
-        f=1;
-        l++;
-      }
-      else {
-        res++;
-        f=0;
-        l=0;
-      }
-    }
-  }
-  cout<<res<<" "<<l<<endl;
+  ll n,m,l;
+  cin>>n>>m>>l;
+  if(n==0)
+  cout<<m<<endl;
+  else
+  if(m%(l+n-1) < l)
+  cout<<m%(l+n-1)<<endl;
+  else cout<<"0 \n";
 }
 
 signed main()

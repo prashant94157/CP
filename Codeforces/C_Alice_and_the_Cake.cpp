@@ -64,38 +64,42 @@ template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
 void solve()
 {
-  ll n,res=0,l=0,curr=0,f=0;
+  ll n,sum=0,a;
   cin>>n;
-  string s;
-  cin>>s;
-  for(ll i=0;i<n;i++)
+  unordered_map<ll,ll> mp;
+  REP(n)
   {
-    if(s[i]=='(')
-    {
-      if(f==0)
-      {
-        if(i+1<n)
-        {
-          res++;i++;
-        }
-        else l=1;
-      }
-      else l++;
-    }
-    else{
-      if(f==0)
-      {
-        f=1;
-        l++;
-      }
-      else {
-        res++;
-        f=0;
-        l=0;
-      }
-    }
+    cin>>a;
+    sum+=a;
+    mp[a]++;
   }
-  cout<<res<<" "<<l<<endl;
+  if(n==1)
+  {
+      cout<<"YES\n";return;
+  }
+  priority_queue<ll,vector<ll>,greater<ll>> pq;
+  pq.push(sum);
+  while(!pq.empty())
+  {
+    // error(pq.top(),i);
+    ll x = pq.top();
+    pq.pop();
+    if(mp.find(x)!=mp.end() && mp[x] > 0)
+    mp[x]--;
+    else{
+        if(x!=1)
+        {
+            pq.push(x/2 + x%2);
+            pq.push(x/2);
+        }
+        else{
+            cout<<"NO\n";return;
+        }
+    }
+
+  }
+    cout<<"YES";
+    cout<<endl;
 }
 
 signed main()

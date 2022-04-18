@@ -62,40 +62,26 @@ ll inv(ll a, ll m) { return fpow(a, m - 2, m); }
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << " = " << a << endl;err(++it, args...);}
+
+ll f(vll &arr,ll a,ll b,ll i,ll cap,unordered_map<string,ll> &mp)
+{
+  // error(i,cap,0);
+  if(i==arr.size())
+  return 0;
+  string temp = to_string(i)+","+to_string(cap);
+  if(mp.find(temp)!=mp.end())
+  return mp[temp];
+  return mp[temp] = min(f(arr,a,b,i+1,arr[i],mp) + (arr[i] - cap)*(b + a),f(arr,a,b,i+1,cap,mp) + (arr[i] - cap)*b);
+}
+
 void solve()
 {
-  ll n,res=0,l=0,curr=0,f=0;
-  cin>>n;
-  string s;
-  cin>>s;
-  for(ll i=0;i<n;i++)
-  {
-    if(s[i]=='(')
-    {
-      if(f==0)
-      {
-        if(i+1<n)
-        {
-          res++;i++;
-        }
-        else l=1;
-      }
-      else l++;
-    }
-    else{
-      if(f==0)
-      {
-        f=1;
-        l++;
-      }
-      else {
-        res++;
-        f=0;
-        l=0;
-      }
-    }
-  }
-  cout<<res<<" "<<l<<endl;
+  ll n,a,b;
+  cin>>n>>a>>b;
+  vll arr;
+  FILL(n,arr); 
+  unordered_map<string,ll> mp;  
+  cout<<f(arr,a,b,0,0,mp)<<endl;
 }
 
 signed main()
