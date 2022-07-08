@@ -10,7 +10,8 @@
     "complex": "cpp",
     "iomanip": "cpp",
     "cmath": "cpp",
-    "cstdlib": "cpp"
+    "cstdlib": "cpp",
+    "valarray": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
